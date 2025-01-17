@@ -1,0 +1,185 @@
+techs:
+
+    solarPV1:
+        essentials: 
+            name: 'SolarPV1'
+            color: '#F9CF22'
+            parent: supply_plus
+            carrier_out: power
+        constraints:
+            resource: file=PV_resource-1.csv
+            resource_unit: energy_per_cap 
+            lifetime: 15
+            energy_cap_max: 15000 #kw 15000
+            energy_cap_min: 0
+        costs: 
+            monetary:
+                interest_rate: 0.10
+                energy_cap: 380 #euro per kW
+                om_prod: 0 #euro per kWh
+                om_annual_investment_fraction: 7.6 #euro per kW per year
+
+
+    solarPV2:
+        essentials: 
+            name: 'SolarPV2'
+            color: '#F9CF22'
+            parent: supply_plus
+            carrier_out: power
+        constraints:
+            resource: file=PV_resource-2.csv
+            resource_unit: energy_per_cap 
+            lifetime: 15
+            energy_cap_max: 15000 #kw 15000
+            energy_cap_min: 0
+        costs: 
+            monetary:
+                interest_rate: 0.10
+                energy_cap: 380 #euro per kW
+                om_prod: 0 #euro per kWh
+                om_annual_investment_fraction: 7.6 #euro per kW per year
+
+
+    ccgt:
+        essentials:
+            name: 'Combined cycle gas turbine'
+            color: '#A5A5A5'
+            parent: supply
+            carrier_out: power
+        constraints:
+            resource: inf
+            energy_cap_max: 5000 #kw
+            energy_cap_min: 0
+            energy_eff: 0.56
+            energy_ramping: 0.8 # source: Pfenninger UK model
+            lifetime: 20
+        costs:
+            monetary:
+                interest_rate: 0.10
+                energy_cap: 1276  # €/kW
+                om_prod: 0.00447  # €/kWh
+                om_annual_investment_fraction: 29.56 # €/kW/year
+
+
+    battery1:
+        essentials:
+            name: 'Battery storage'
+            color: '#3B61E3'
+            parent: storage
+            carrier: power
+        constraints:
+            energy_cap_max: 10000 #10000
+            energy_cap_min: 0
+            storage_cap_max: 2e+8
+            energy_cap_per_storage_cap_equals: 0.25
+            energy_eff: 0.98
+            lifetime: 20
+        costs:
+            monetary:
+                interest_rate: 0.1
+                storage_cap: 660 # €/kWh
+                om_annual_investment_fraction: 0.57 #€/kW/year
+                om_prod: 0.00191 # €/kWh
+
+
+    battery2:
+        essentials:
+            name: 'Battery storage'
+            color: '#3B61E3'
+            parent: storage
+            carrier: power
+        constraints:
+            energy_cap_max: 10000 #10000
+            energy_cap_min: 0
+            storage_cap_max: 2e+8
+            energy_cap_per_storage_cap_equals: 0.25
+            energy_eff: 0.98
+            lifetime: 20
+        costs:
+            monetary:
+                interest_rate: 0.1
+                storage_cap: 660 # €/kWh
+                om_annual_investment_fraction: 0.57 #€/kW/year
+                om_prod: 0.00191 # €/kWh
+
+
+
+
+
+    demand_power:
+        essentials:
+            name: 'Power demand'
+            color: '#072486'
+            parent: demand
+            carrier: power
+  
+    ac_transmission:
+        essentials:
+            name: 'AC power transmission'
+            color: '#8465A9'
+            parent: transmission
+            carrier: power
+        constraints:
+            energy_cap_max: 50000  # kW
+            energy_cap_min: 50000
+            energy_eff: 0.85
+            lifetime: 25
+        costs:
+            monetary:
+                interest_rate: 0.10
+                energy_cap: 200
+                om_prod: 0.002
+
+
+ 
+    # ccgt:
+    #     essentials:
+    #         name: 'Combined cycle gas turbine'
+    #         color: '#E37A72'
+    #         parent: supply
+    #         carrier_out: power
+    #     constraints:
+    #         resource: inf
+    #         energy_eff: 0.5
+    #         energy_cap_max: 40000  # kW
+    #         energy_cap_min: 0
+    #         #energy_cap_equals: 40000
+    #         energy_cap_max_systemwide: 100000  # kW
+    #         energy_ramping: 0.8
+    #         lifetime: 25
+    #     costs:
+    #         monetary:
+    #             interest_rate: 0.10
+    #             energy_cap: 750  # USD per kW
+    #             om_con: 0.02  # USD per kWh
+
+    # csp:
+    #     essentials:
+    #         name: 'Concentrating solar power'
+    #         color: '#F9CF22'
+    #         parent: supply_plus
+    #         carrier_out: power
+    #     constraints:
+    #         storage_cap_max: 614033
+    #         energy_cap_per_storage_cap_max: 1
+    #         storage_loss: 0.002
+    #         resource: file=csp_resource.csv
+    #         resource_unit: energy_per_area
+    #         energy_eff: 0.4
+    #         parasitic_eff: 0.9
+    #         resource_area_max: inf
+    #         energy_cap_max: 20000 #10000
+    #         energy_cap_min: 0
+    #         #energy_cap_equals: 10000
+    #         lifetime: 25
+    #     costs:
+    #         monetary:
+    #             interest_rate: 0.10
+    #             storage_cap: 50
+    #             resource_area: 200
+    #             resource_cap: 200
+    #             energy_cap: 1000
+    #             om_prod: 0.002
+
+
+

@@ -1,0 +1,35 @@
+locations:
+    region1:
+        coordinates: {lat: 40, lon: -2}
+        techs:
+            ccgt:
+            
+            demand_power:
+                constraints:
+                    resource: file=demand-1.csv:demand
+
+            battery1:
+
+            solarPV1:
+
+
+    region2:
+        coordinates: {lat: 40, lon: -8}
+        techs:
+
+            demand_power:
+                constraints:
+                    resource: file=demand-2.csv:demand
+            
+            battery2:
+
+            solarPV2:
+
+
+
+links:
+    
+    region1,region2:
+        techs:
+            ac_transmission:
+
